@@ -3,6 +3,10 @@ let className = ['red-circle', 'green-circle', 'blue-circle'];
 
 window.onload = function () {
 
+    const parent = document.createElement('div');
+    add.className = 'parent-div';
+    document.body.appendChild(parent);
+
     // cria 3 primeiros circulos
     while(numCircles < 3) {
         addCircle();
@@ -28,7 +32,7 @@ function addCircle() {
 
     const circle = document.createElement('div');
     circle.className = className[numCircles%3];
-    document.body.appendChild(circle);
+    document.getElementsByClassName('parent-div').appendChild(circle);
 
     numCircles++;
 
