@@ -42,6 +42,11 @@ function addCircle() {
 //funcao de remover circulos
 function removeCircle() {
 
+    if(numCircles == 0) {
+        console.log('nao existem mais circulos para remover, pare com isso')
+        return;
+    }
+
     numCircles--;
 
     let name = '';
@@ -71,4 +76,26 @@ function removeCircle() {
 
 }
 
-// TODO: Implementar removeCircle() e visibilidade dos circulos
+// remove visibilidade dos circulos
+window.addEventListener('click', (e) => {
+
+    if(e.target.tagName === 'DIV') {
+        e.target.style.display = 'none'
+    }
+
+});
+
+// reset na visibilidade dos circulos
+window.onkeydown = function(e) {
+
+    if(e.key === 'Escape') {
+        
+        let missingCircles = document.getElementsByTagName('div');
+
+        for(let i = 0; i < missingCircles.length; i++) {
+            missingCircles[i].style.display = 'block';
+        }
+
+    }
+
+}
